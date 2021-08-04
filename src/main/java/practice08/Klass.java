@@ -28,6 +28,7 @@ public class Klass {
         }
         else {
             //leader would be null here which would result to failed case
+            this.leader = leader; //for testing purposes
             System.out.println("It is not one of us.");
         }
     }
