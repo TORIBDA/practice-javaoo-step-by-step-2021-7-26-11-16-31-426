@@ -1,18 +1,14 @@
 package practice09;
 
-import practice08.Person;
-
 import java.text.MessageFormat;
-import java.util.LinkedList;
+import java.util.Objects;
 
 public class Klass {
     private int num;
     private Student leader;
-    private LinkedList<Student> members;
 
     public Klass(int num) {
         this.num = num;
-        members = new LinkedList<Student>();
     }
 
     public int getNumber() {
@@ -37,20 +33,24 @@ public class Klass {
     }
 
     public void appendMember(Student member) {
-        if(member.getKlass().getNumber()==this.num)
-        {
-            members.add(member);
-        }
+        member.setKlass(this);
     }
 
     public boolean isIn(Student student)
     {
-        System.out.println("Student Class: " + student.getKlass().getNumber());
-        System.out.println("Is a Member: " +  members.contains(student));
-        System.out.print("Members: ");
-        members.forEach(member-> System.out.println(member.getKlass().getNumber()));
-        System.out.println();
-        System.out.println();
-        return members.contains(student);
+        return this.equals(student.getKlass());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Klass klass = (Klass) o;
+        return num == klass.num;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(num);
     }
 }

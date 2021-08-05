@@ -3,7 +3,7 @@ package practice09;
 import java.text.MessageFormat;
 
 public class Student extends Person{
-    private final Klass klass;
+    private Klass klass;
     public Student(int id, String name, int age, Klass klass) {
         super(id, name, age);
         this.klass = klass;
@@ -19,5 +19,9 @@ public class Student extends Person{
 
     public Klass getKlass() {
         return klass;
+    }
+
+    public void setKlass(Klass klass) {
+        this.klass=klass;
     }
 }
