@@ -1,17 +1,13 @@
 package practice08;
 
-
 import java.text.MessageFormat;
-import java.util.LinkedList;
 
 public class Klass {
-    private int num;
+    private final int num;
     private Student leader;
-    private LinkedList<Student> members;
 
     public Klass(int num) {
         this.num = num;
-        members = new LinkedList<Student>();
     }
 
     public int getNumber() {
@@ -27,9 +23,7 @@ public class Klass {
             this.leader = leader;
         }
         else {
-            //leader would be null here which would result to failed case
-            this.leader = leader; //for testing purposes
-            System.out.println("It is not one of us.");
+            System.out.print("It is not one of us.\n");
         }
     }
 
@@ -38,9 +32,6 @@ public class Klass {
     }
 
     public void appendMember(Student member) {
-        if(member.getKlass().getNumber()==this.num)
-        {
-            members.add(member);
-        }
+        member.setKlass(this);
     }
 }
