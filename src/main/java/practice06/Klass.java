@@ -3,7 +3,7 @@ package practice06;
 import java.text.MessageFormat;
 
 public class Klass {
-    private int num;
+    private final int num;
 
     public Klass(int num) {
         this.num = num;

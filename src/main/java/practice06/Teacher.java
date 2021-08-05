@@ -2,7 +2,7 @@ package practice06;
 
 import java.text.MessageFormat;
 
-public class Teacher extends Person{
+public class Teacher extends Person {
     private Klass klass;
 
     public Teacher(String name, int age) {
@@ -15,10 +15,10 @@ public class Teacher extends Person{
     }
 
     @Override
-    public String introduce(){
-        return klass!=null?
-                (super.introduce()+ " I am a Teacher. I teach Class " + klass.getNumber() +"."):
-                (super.introduce()+ " I am a Teacher. I teach No Class.");
+    public String introduce() {
+        return klass != null ?
+                (super.introduce() + " I am a Teacher. I teach Class " + klass.getNumber() + ".") :
+                (super.introduce() + " I am a Teacher. I teach No Class.");
     }
 
     public Klass getKlass() {
@@ -27,7 +27,7 @@ public class Teacher extends Person{
 
     public String introduceWith(Student student) {
         return MessageFormat.format("{0} I am a Teacher. I {1}{2}.", super.introduce(),
-                ((student.getKlass().getNumber()==klass.getNumber())?"teach ":"don't teach "),
+                (klass.equals(student.getKlass()) ? "teach " : "don't teach "),
                 student.getName());
     }
 }
